@@ -4,6 +4,7 @@ import { baseUrl } from '../../shared/baseUrl';
 export const fetchCampsites = createAsyncThunk(
  'campsites/fetchCampsites',
  async () => {
+  //Payload Creator
   const response = await fetch(baseUrl + 'campsites');
   return response.json();
  }
@@ -14,6 +15,7 @@ const campsitesSlice = createSlice({
  initialState: { isLoading: true, errMess: null, campsitesArray: [] },
  reducers: {},
  extraReducers: {
+  //Pending Promise Returned from Payload Creator, Action Creator Dispatched here:
   [fetchCampsites.pending]: (state) => {
    state.isLoading = true;
   },
