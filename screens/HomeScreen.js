@@ -7,6 +7,7 @@ import Loading from '../components/LoadingComponent';
 const FeaturedItem = (props) => {
  //item variable from hooking into state below and filtering for featured property
  const { item } = props;
+
  if (props.isLoading) {
   return <Loading />;
  }
