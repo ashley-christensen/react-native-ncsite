@@ -15,7 +15,7 @@ const campsitesSlice = createSlice({
  initialState: { isLoading: true, errMess: null, campsitesArray: [] },
  reducers: {},
  extraReducers: {
-  //Pending Promise Returned from Payload Creator, Action Creator Dispatched here:
+  //Pending Promise Returned from Payload Creator, "Action Creator" Dispatched here:
   [fetchCampsites.pending]: (state) => {
    state.isLoading = true;
   },
