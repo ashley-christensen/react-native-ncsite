@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { View, FlatList, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, FlatList, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 import { Avatar, ListItem } from 'react-native-elements';
 import Loading from '../components/LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
@@ -19,7 +19,21 @@ const FavoritesScreen = ({ navigation }) => {//navigation given by react-navigat
     <View style={styles.deleteView}>
      <TouchableOpacity
       style={styles.deleteTouchable}
-      onPress={() => dispatch(toggleFavorite(campsite.id))}
+      onPress={() => Alert.alert('Delete Favorite?',
+       'Are you sure you wish to delete the favorite campsite ' + campsite.name + '?',
+       [
+        {
+         text: 'Cancel',
+         onPress: () => console.log(campsite.name + 'Not Deleted'),
+         style: 'cancel'
+        },
+        {
+         text: 'OK',
+         onPress: () => dispatch(toggleFavorite(campsite.id))
+        }
+       ],
+       { cancelable: false } // user must choose one option to exit dialogue, not click outside alert
+      )}//takes title, msg, set of actions to support as array of objects, each representing a button in alert dialogue, optional parameter = object cancelable: false
      >
       <Text style={styles.deleteText}>Delete</Text>
      </TouchableOpacity>
@@ -39,7 +53,7 @@ const FavoritesScreen = ({ navigation }) => {//navigation given by react-navigat
      </ListItem>
     </View>
 
-   </SwipeRow>
+   </SwipeRow >
   );
  };
 
