@@ -34,7 +34,7 @@ const FavoritesScreen = ({ navigation }) => {
         }
        ],
        { cancelable: false } // user must choose one option to exit dialogue, not click outside alert
-      )}//takes title, msg, set of actions to support as array of objects, each representing a button in alert dialogue, optional parameter = object cancelable: false
+      )}
      >
       <Text style={styles.deleteText}>Delete</Text>
      </TouchableOpacity>
